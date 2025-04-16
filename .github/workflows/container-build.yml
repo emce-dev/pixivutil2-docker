@@ -24,11 +24,11 @@ jobs:
       already_exists: ${{ steps.existing-image.outputs.exists }}
     steps:
       - name: Download PixivUtil2 release information
-        if: ${{ inputs.commit == "" }}
+        if: ${{ inputs.commit == '' }}
         run: curl https://api.github.com/repos/Nandaka/PixivUtil2/releases -o releases.json
       - name: Get latest release information
         id: get-release-info
-        if: ${{ inputs.commit == "" }}
+        if: ${{ inputs.commit == '' }}
         run: |
           tag=$(jq '.[0].tag_name' releases.json | tr -d '"')
           url=$(jq '.[0].tarball_url' releases.json | tr -d '"')
@@ -37,7 +37,7 @@ jobs:
           echo "tag=$tag" >> $GITHUB_ENV
       - name: Get commit information
         id: get-commit-info
-        if: ${{ inputs.commit != "" }}
+        if: ${{ inputs.commit != '' }}
         run: |
           export tag="${{ inputs.commit }}"
           export url="https://github.com/Nandaka/PixivUtil2/archive/${{ inputs.commit }}.tar.gz"
