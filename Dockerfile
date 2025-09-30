@@ -23,5 +23,8 @@ WORKDIR /
 
 COPY --from=builder /usr/local/lib/python3.11/site-packages/ /usr/local/lib/python3.11/site-packages/
 COPY PixivUtil2/ /
+COPY entrypoint.sh /entrypoint.sh
 
-ENTRYPOINT ["python", "/PixivUtil2.py"]
+RUN chmod 777 /entrypoint.sh
+
+ENTRYPOINT ["entrypoint.sh"]
