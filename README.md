@@ -1,7 +1,11 @@
 # PixivUtil2-docker
 
 Docker container builds of Nandaka's [PixivUtil2](https://github.com/Nandaka/PixivUtil2/).
-Just for testing a few things.
+Forked from [Hamuko's docker iamge]https://github.com/Hamuko/pixivutil2-docker
+
+Just for testing a few things, primarily trying to fix file permissions when running on unraid.
+
+
 
 ## Example usage
 
